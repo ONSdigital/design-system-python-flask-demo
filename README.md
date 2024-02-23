@@ -1,8 +1,8 @@
 # design-system-python-flask-demo
 
-This project is a demo site repo for design system using Python and Flask.
+This project is demo of design system implemenented in Python and Flask.
 
-## Requirements setup
+### Requirements setup
 
 For setting up this project, run the below command. pyenv is a python version management tool that allows switch between
 multiple python version. jq is a JSON preprosser that is used to fetch the design systems templates using the `scripts/load_release.sh`.
