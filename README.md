@@ -33,10 +33,12 @@ pip install Flask
 ### Running the Application
 
 For running this application, load and update the design system templates first using the below command.(Make sure to
-specify the latest of design system in `.design-system-version`.)
+specify the latest version of design system in `.design-system-version`.)
 
 ```
 make load-design-system-templates
 ```
 
-Then, run `make run` which returns a Hello World Page with the basic DS page layout(see `index.html`) at `http://127.0.0.1:5000` .
+`make load-desing-system-templates` loads the `scripts/load_release.sh` that gets all the components and layouts of [design system](https://github.com/ONSdigital/design-system) in a zip file which is created in each [design system release](https://github.com/ONSdigital/design-system/releases) and unloads them to the templates folder. These macros are gitignored.
+
+Then, run `make run` which renders a Hello World Page with the basic DS page layout(see `index.html` which imports the template `layout/_template.njk` ) at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime form the CDN
