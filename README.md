@@ -9,7 +9,6 @@ multiple python version. jq is a JSON preprosser that is used to fetch the desig
 
 ```
 brew install pyenv jq
-
 ```
 
 To install the python and initialize virtual env run the following commands. Note:- The python version is specified in the
@@ -21,7 +20,6 @@ pyenv install
 
 ```
 python3 -m venv env && source env/bin/activate
-
 ```
 
 For Installing Flask run
