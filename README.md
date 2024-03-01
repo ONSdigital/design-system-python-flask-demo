@@ -22,7 +22,7 @@ pyenv install
 python3 -m venv env && source env/bin/activate
 ```
 
-For Installing Flask run
+For installing flask run
 
 ```
 pip install Flask
@@ -39,4 +39,4 @@ make load-design-system-templates
 
 `make load-desing-system-templates` loads the `scripts/load_release.sh` that gets all the components and layouts of [design system](https://github.com/ONSdigital/design-system) in a zip file which is created in each [design system release](https://github.com/ONSdigital/design-system/releases) and unloads them to the templates folder. These macros are gitignored.
 
-Then, run `make run` which renders a Hello World Page with the basic DS page layout(see `index.html` which imports the template `layout/_template.njk` ) at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime form the CDN
+Then, run `make run` which renders a Hello World Page with the basic DS page layout(see `index.html` which imports the template `layout/_template.njk` ) at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
