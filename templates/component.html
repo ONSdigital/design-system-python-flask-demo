@@ -1,0 +1,8 @@
+<html>
+{% include 'external-css.html' %}
+<body class="ons-u-p-m">
+{% for file in example_files %}
+<li><a href="{{ url_for('show_example', component_name=component_name, filename=file) }}">{{ file }}</a></li>
+{% endfor %}
+</body>
+</html>
