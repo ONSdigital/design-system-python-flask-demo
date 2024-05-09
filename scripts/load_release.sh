@@ -26,14 +26,3 @@ TEMP_DIR=$(mktemp -d)
 curl -L --url "https://github.com/${REPO_NAME}/releases/download/${TAG_NAME}/${RELEASE_NAME}" --output "${TEMP_DIR}/${RELEASE_NAME}"
 unzip -o "${TEMP_DIR}/${RELEASE_NAME}" -d ./
 rm -rf "${TEMP_DIR}"
-
-
-TEMP_FILE=$(mktemp)
-
-sed "/set CDN_version/d" "templates/external-css.html" > temp_file && mv temp_file "templates/external-css.html"
-echo "{% set CDN_version = '${TAG_NAME}' %}" | cat - "templates/external-css.html" > "$TEMP_FILE"
-
-mv "$TEMP_FILE" "templates/external-css.html"
-rm -rf "${TEMP_FILE}"
-
-
