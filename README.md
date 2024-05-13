@@ -22,10 +22,10 @@ pyenv install
 python3 -m venv env && source env/bin/activate
 ```
 
-For installing flask run. We are also using installing YAML frontmatter in this step to facilitate DS examples that use settings like `"fullWidth": true`
+For installing flask run
 
 ```
-pip install Flask python-frontmatter
+pip install Flask
 ```
 
 ### Running the Application
@@ -37,24 +37,6 @@ specify the latest version of design system in `.design-system-version`.)
 make load-design-system-templates
 ```
 
-`make load-design-system-templates` loads the `scripts/load_release.sh` that gets all the components and layouts of [design system](https://github.com/ONSdigital/design-system) in a zip file which is created in each [design system release](https://github.com/ONSdigital/design-system/releases) and unloads them to the templates folder. These macros are gitignored.(This is same as [eq_questionnarie_runner](https://github.com/ONSdigital/eq-questionnaire-runner/blob/main/scripts/load_release.sh))
+`make load-desing-system-templates` loads the `scripts/load_release.sh` that gets all the components and layouts of [design system](https://github.com/ONSdigital/design-system) in a zip file which is created in each [design system release](https://github.com/ONSdigital/design-system/releases) and unloads them to the templates folder. These macros are gitignored.
 
-Then, run `make run` which renders all the example components as displayed in the Design System at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
-
-### Visual Tests
-
-To run/automate the Visual Tests, BackstopJs is used, comparing screenshots overtime.To install BackstopJs run
-
-```
-npm install -g backstopjs
-```
-
-Note-: Make sure to install npm package([link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)) before before installing BackstopJS.
-
-To utilize BackstopJS, the workflow is as follows:
-
-`make generate-backstopjs`: This python file generates `backstop.json` file with specified Design System URLs,screen sizes, DOM selectors etc.
-
-`backstop test`: This creates a set of screenshots and compares them with reference screenshots and shows any changes in the visual report.(`backstop_data/html_report`).Note-: Make sure to keep the local server running before executing this step.
-
-`backstop approve`: This approves the changes and updates the reference files with the results from `backstop test`.
+Then, run `make run` which renders a Hello World Page with the basic DS page layout(see `index.html` which imports the template `layout/_template.njk` ) at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
