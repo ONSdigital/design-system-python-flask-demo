@@ -36,7 +36,6 @@ def show_example(component_name, filename):
         return render_template_string(template)
     except FileNotFoundError:
         return "File not found"
-    
 
 if __name__ == "__main__":
     app.run(debug=True)
