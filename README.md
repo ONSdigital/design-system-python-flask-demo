@@ -55,6 +55,6 @@ To utilize BackstopJS, the workflow is as follows:
 
 `make generate-backstopjs`: This python file generates `backstop.json` file with specified Design System URLs,screen sizes, DOM selectors etc.
 
-`backstop test`: This creates a set of screenshots and compares them with reference screenshots and shows any changes in the visual report.(`backstop_data/html_report`).Note-: Make sure to keep the local server running before executing this step.
+`backstop test`: This runs the tests which creates a set of screenshots, compares them with reference screenshots and shows any changes in the visual report (`backstop_data/html_report`). Note-: Make sure to keep the local server running before executing this step.
 
 `backstop approve`: This approves the changes and updates the reference files with the results from `backstop test`.
