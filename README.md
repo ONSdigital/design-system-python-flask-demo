@@ -53,7 +53,7 @@ Note-: Make sure to install npm package([link](https://docs.npmjs.com/downloadin
 
 To utilize BackstopJS, the workflow is as follows:
 
-`make generate-backstopjs`: This python file generates `backstop.json` file with specified Design System URLs,screen sizes, DOM selectors etc.
+`make generate-backstopjs`: This python file generates `backstop.json` file which has the config for BackstopJS
 
 `backstop test`: This runs the tests which creates a set of screenshots, compares them with reference screenshots and shows any changes in the visual report (`backstop_data/html_report`). Note-: Make sure to keep the local server running before executing this step.
 
