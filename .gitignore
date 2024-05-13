@@ -7,4 +7,4 @@ templates/components/*
 templates/layout/*
 backstop_data/bitmaps_test/
 backstop_data/html_report/
-backstop.json   
+backstop.json
