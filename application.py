@@ -36,7 +36,7 @@ def example(component_name, filename):
         if 'layout' in content.metadata:
              template =  content.content
         else:
-             template = '{% extends "layout/_template.njk" %} {% block body %}  <div class="ons-u-p-m">'  + content.content  + '</div> {% endblock %}'
+             template = '{% extends "layout/_template.njk" %}{% block body %}<div class="ons-u-p-m">' + content.content + '</div>{% endblock %}'
         return render_template_string(template)
     except FileNotFoundError:
         return "File not found"
