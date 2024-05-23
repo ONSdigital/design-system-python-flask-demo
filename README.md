@@ -31,7 +31,7 @@ pip install Flask python-frontmatter
 
 ## Running the Application
 
-For running this application, run `make run` which first executes `scripts/load_release.sh` script which downloads the Design System macros zip file from the github release and unzips them into a templates folder. Then, renders all the example components as displayed in the Design System at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
+For running this application, run `make run` which first executes `scripts/load_release.sh` script that downloads the Design System macros zip file from the github release and unzips them into a templates folder. Then, `flask --app application run ` renders all the example components as displayed in the Design System at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
 
 ## Visual Tests
 
