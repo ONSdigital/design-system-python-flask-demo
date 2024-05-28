@@ -1,17 +1,11 @@
-{% extends "layout/_template.njk" %}
-{% set pageConfig = {
-    "header": {
-        "title": "Service name"
-    },
-    "footer": {
-        "OGLLink": {
-            "pre": 'All content is available under the',
-            "link": 'Open Government Licence v3.0',
-            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-            "post": ', except where otherwise stated'
-        }
-    }
-} %}
-{% block main %}
-   <h1>{{param}}</h1>
+{% extends "layout/_template.njk" %} 
+{% block body %}  
+    <div class="ons-u-p-m">
+    <h1>Components</h1>
+    <ul class="ons-list ons-list--dashed ons-u-pb-l">
+    {% for file in example_files %}
+    <li class = "ons-list__item"><a href="{{ url_for('component', component_name=file)}}">{{ file }}</a></li>
+    {% endfor %}
+    </ul>
+</div> 
 {% endblock %}

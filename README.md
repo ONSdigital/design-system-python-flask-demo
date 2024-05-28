@@ -1,11 +1,11 @@
 # design-system-python-flask-demo
 
-This project is demo of design system implemenented in Python and Flask.
+This project is demo of design system implemented in Python and Flask.
 
-### Requirements setup
+## Requirements setup
 
-For setting up this project, run the below command. pyenv is a python version management tool that allows switch between
-multiple python version. jq is a JSON preprosser that is used to fetch the design systems templates using the `scripts/load_release.sh`.
+For setting up this project, run the below command. pyenv is a python version management tool that allows switching between
+multiple python versions. jq is a JSON preprocessor that is used to fetch the design systems templates using the `scripts/load_release.sh`.
 
 ```
 brew install pyenv jq
@@ -22,21 +22,13 @@ pyenv install
 python3 -m venv env && source env/bin/activate
 ```
 
-For installing flask run
+For installing flask run.
+We are also using installing YAML frontmatter in this step to facilitate DS examples that use settings like `"fullWidth": true`
 
 ```
-pip install Flask
+pip install Flask python-frontmatter
 ```
 
-### Running the Application
+## Running the Application
 
-For running this application, load and update the design system templates first using the below command.(Make sure to
-specify the latest version of design system in `.design-system-version`.)
-
-```
-make load-design-system-templates
-```
-
-`make load-desing-system-templates` loads the `scripts/load_release.sh` that gets all the components and layouts of [design system](https://github.com/ONSdigital/design-system) in a zip file which is created in each [design system release](https://github.com/ONSdigital/design-system/releases) and unloads them to the templates folder. These macros are gitignored.
-
-Then, run `make run` which renders a Hello World Page with the basic DS page layout(see `index.html` which imports the template `layout/_template.njk` ) at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
+For running this application, run `make run` which first executes `scripts/load_release.sh` script that downloads the Design System macros zip file from the github release and unzips them into a templates folder. Then, `flask --app application run ` renders all the example components as displayed in the Design System at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
