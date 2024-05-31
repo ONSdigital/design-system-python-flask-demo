@@ -6,4 +6,10 @@ load-design-system-templates:
 run:
 	flask --app application run
 
-  
+format-python:
+	poetry run isort .
+	poetry run black .
+	poetry run flake8 .
+
+lint-html:
+	poetry run djlint ./templates --profile=jinja

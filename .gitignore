@@ -1,7 +1,8 @@
 */__pycache__
 */*/__pycache__
 */*/*/__pycache__
-env/*
 *.pyc
 templates/components/*
 templates/layout/*
+node_modules
+backstop_data/engine_scripts
