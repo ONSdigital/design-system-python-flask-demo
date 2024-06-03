@@ -2,7 +2,9 @@
 */*/__pycache__
 */*/*/__pycache__
 *.pyc
+env
 templates/components/*
 templates/layout/*
 node_modules
 backstop_data/engine_scripts
+backstop.json
