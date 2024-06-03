@@ -22,12 +22,6 @@ pyenv install
 python3 -m venv env && source env/bin/activate
 ```
 
-For installing flask run
-
-```
-pip install Flask
-```
-
 ### Running the Application
 
 For running this application, load and update the design system templates first using the below command.(Make sure to
