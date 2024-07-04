@@ -10,7 +10,6 @@ For setting up this project, run the below command. pyenv is a Python version ma
 brew install pyenv jq
 ```
 
-### Python and their dependencies
 
 Install Python and initialize the virtual environment as shown below.
 Note: The Python version is specified in the .python-version file.
