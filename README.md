@@ -10,7 +10,6 @@ For setting up this project, run the below command. pyenv is a Python version ma
 brew install pyenv jq
 ```
 
-
 Install Python and initialize the virtual environment as shown below.
 Note: The Python version is specified in the .python-version file.
 
@@ -31,13 +30,3 @@ All the libraries declared are available in `pyproject.toml`. To install these d
 ## Running the Application
 
 For running this application, run `make run` which first executes `scripts/load_release.sh` script that downloads the Design System macros zip file from the github release and unzips them into a templates folder. Then, `flask --app application run ` renders all the example components as displayed in the Design System at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
-
-## Visual Tests
-
-For the visual regression tests BackstopJS is used. To install BackstopJS run:
-
-```
-yarn install
-```
-
-Note-: Make sure to install yarn package([link](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)) before before installing BackstopJS.
