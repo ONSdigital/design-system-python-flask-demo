@@ -2,7 +2,7 @@
 
 This project is demo of design system implemented in Python and Flask.
 
-## Requirements setup
+## Setup
 
 For setting up this project, run the below command. pyenv is a Python version management tool that allows switching between multiple Python versions. jq is a JSON preprocessor that is used to fetch the design system's templates using `scripts/load_release.sh`.
 
