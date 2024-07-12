@@ -1,6 +1,6 @@
 # design-system-python-flask-demo
 
-This project is demo of design system implemented in Python and Flask.
+This project is a demo of design system implemented in Python and Flask.
 
 ## Setup
 
