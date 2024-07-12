@@ -13,3 +13,6 @@ format-python:
 
 lint-html:
 	poetry run djlint ./templates --profile=jinja
+
+format-html:
+	poetry run djlint . --reformat
