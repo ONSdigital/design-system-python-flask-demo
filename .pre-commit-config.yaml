@@ -7,7 +7,16 @@ repos:
   - repo: https://github.com/djlint/djLint
     rev: v1.34.1
     hooks:
-      - id: djlint-reformat-jinja
+      - id: djlint-reformat
+        name: djLint formatting
+        entry: djlint --reformat
+        types_or: [html]
+        language: python
+      - id: djlint-jinja
+        name: djLint linting for Jinja
+        entry: djlint --profile=jinja
+        types_or: [html]
+        language: python
   - repo: https://github.com/PyCQA/flake8
     rev: 7.0.0
     hooks:
