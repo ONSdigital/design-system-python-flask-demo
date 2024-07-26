@@ -11,8 +11,5 @@ format-python:
 	poetry run black .
 	poetry run flake8 .
 
-lint-html:
-	poetry run djlint ./templates --profile=jinja
-
-format-html:
-	poetry run djlint . --reformat
+install-hooks:
+	pre-commit install
