@@ -27,9 +27,17 @@ pip install poetry
 
 All the libraries declared are available in `pyproject.toml`. To install these defined dependencies, run `poetry install`. To add a new dependency, run `poetry add <dependency_name>`.
 
-Run `poetry run pre-commit install` which sets up hooks that automatically execute code checks and formatting tools before each commit.
+Install pre-commit hooks, to automatically execute code checks and formatting tools before each commit as shown below.
 
-Run `npm install` which installs Prettier and `prettier-plugin-jinja-template` dependencies listed in `package.json`.
+```
+poetry run pre-commit install
+```
+
+Install code formatter prettier and `prettier-plugin-jinja-template` plugin as shown below.
+
+```
+npm install
+```
 
 ## Running the Application
 
