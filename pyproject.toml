@@ -18,6 +18,5 @@ pre-commit = "^3.7.1"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-
 [tool.poetry.scripts]
 lint = "bash -c 'flake8 . && black -- check . && isort --check-only .'"
