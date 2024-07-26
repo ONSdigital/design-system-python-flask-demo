@@ -11,5 +11,5 @@ format-python:
 	poetry run black .
 	poetry run flake8 .
 
-install-hooks:
-	pre-commit install
+format:
+	npx prettier --write .

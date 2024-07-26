@@ -27,7 +27,7 @@ pip install poetry
 
 All the libraries declared are available in `pyproject.toml`. To install these defined dependencies, run `poetry install`. To add a new dependency, run `poetry add <dependency_name>`.
 
-Run `make install-hooks` which sets up hooks that automatically execute code checks and formatting tools before each commit.
+Run `poetry run pre-commit install` which sets up hooks that automatically execute code checks and formatting tools before each commit.
 
 ## Running the Application
 
