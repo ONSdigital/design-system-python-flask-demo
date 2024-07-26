@@ -29,6 +29,8 @@ All the libraries declared are available in `pyproject.toml`. To install these d
 
 Run `poetry run pre-commit install` which sets up hooks that automatically execute code checks and formatting tools before each commit.
 
+Run `npm install` which installs Prettier and `prettier-plugin-jinja-template` dependencies listed in `package.json`.
+
 ## Running the Application
 
 For running this application, run `make run` which first executes `scripts/load_release.sh` script that downloads the Design System macros zip file from the github release and unzips them into a templates folder. Then, `flask --app application run ` renders all the example components as displayed in the Design System at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
