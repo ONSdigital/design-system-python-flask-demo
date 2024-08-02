@@ -1,7 +1,8 @@
 */__pycache__
 */*/__pycache__
 */*/*/__pycache__
-env/*
 *.pyc
-templates/components/*
-templates/layout/*
+env
+templates/components
+templates/layout
+node_modules
