@@ -12,6 +12,7 @@ def setAttributes(dictionary, attributes):
 app.jinja_env.filters['setAttributes'] = setAttributes
 app.jinja_env.undefined = ChainableUndefined
 
+<<<<<<< HEAD
 @app.route('/<path:filename>')
 def generate_images(filename):
     return send_from_directory('static/',filename)
@@ -40,6 +41,13 @@ def example(component_name, filename):
         return render_template_string(template)
     except FileNotFoundError:
         return "File not found"
+=======
+
+@app.route("/")
+def hello_world():
+    return render_template("index.html", param="Hello world")
+
+>>>>>>> f6b5d71 (Initial Project Setup (#7))
 
 if __name__ == "__main__":
     app.run(debug=True)
