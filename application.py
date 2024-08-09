@@ -42,7 +42,7 @@ def component(component_name):
         if file.startswith("example")
     ]
     return render_template(
-        "component.html",
+        "component-examples-list.html",
         example_files=sorted(example_files),
         component_name=component_name,
     )
