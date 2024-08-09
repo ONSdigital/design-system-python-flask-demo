@@ -1,32 +1,42 @@
 # design-system-python-flask-demo
 
-This project is demo of design system implemented in Python and Flask.
+This project is a demo of design system implemented in Python and Flask.
 
-## Requirements setup
+## Setup
 
-For setting up this project, run the below command. pyenv is a python version management tool that allows switching between
-multiple python versions. jq is a JSON preprocessor that is used to fetch the design systems templates using the `scripts/load_release.sh`.
+For setting up this project, run the below command. pyenv is a Python version management tool that allows switching between multiple Python versions. jq is a JSON preprocessor that is used to fetch the design system's templates using `scripts/load_release.sh`.
 
 ```
 brew install pyenv jq
 ```
 
-To install the python and initialize virtual env run the following commands. Note:- The python version is specified in the
-`.python-version` file.
+Install Python and initialise the virtual environment as shown below.
+Note: The Python version is specified in the .python-version file.
 
 ```
 pyenv install
-```
-
-```
 python3 -m venv env && source env/bin/activate
 ```
 
-For installing flask run.
-We are also using installing YAML frontmatter in this step to facilitate DS examples that use settings like `"fullWidth": true`
+Install Poetry, a dependency management and packaging tool, as shown below.
 
 ```
-pip install Flask python-frontmatter
+pip install -U pip setuptools
+pip install poetry
+```
+
+All the libraries declared are available in `pyproject.toml`. To install these defined dependencies, run `poetry install`. To add a new dependency, run `poetry add <dependency_name>`.
+
+Install pre-commit hooks, to automatically execute code checks and formatting tools before each commit as shown below.
+
+```
+poetry run pre-commit install
+```
+
+Install code formatter prettier and `prettier-plugin-jinja-template` plugin as shown below.
+
+```
+npm install
 ```
 
 ## Running the Application
