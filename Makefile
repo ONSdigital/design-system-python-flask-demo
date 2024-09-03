@@ -13,3 +13,15 @@ format-python:
 
 format:
 	npx prettier --write .
+
+generate-backstopjs:
+	python3 -m generate_backstop_config
+
+reference:
+	backstop reference
+
+test:
+	backstop test
+
+approve:
+	backstop approve

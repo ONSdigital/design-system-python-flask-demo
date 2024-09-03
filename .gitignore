@@ -6,3 +6,6 @@ env
 templates/components
 templates/layout
 node_modules
+backstop_data/bitmaps_test/
+backstop_data/html_report/
+backstop.json

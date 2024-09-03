@@ -18,11 +18,15 @@ fi
 
 DOWNLOAD_URL=$(curl "https://api.github.com/repos/${REPO_NAME}/releases/tags/${TAG_NAME}" | jq '.assets[0].browser_download_url' | tr -d '"')
 RELEASE_NAME=${DOWNLOAD_URL##*/}
+echo ${RELEASE_NAME}
 
 echo "Fetching ${DOWNLOAD_URL}"
 
 TEMP_DIR=$(mktemp -d)
 
+echo "https://github.com/${REPO_NAME}/releases/download/${TAG_NAME}/${RELEASE_NAME}"
 curl -L --url "https://github.com/${REPO_NAME}/releases/download/${TAG_NAME}/${RELEASE_NAME}" --output "${TEMP_DIR}/${RELEASE_NAME}"
 unzip -o "${TEMP_DIR}/${RELEASE_NAME}" -d ./
 rm -rf "${TEMP_DIR}"
+
+
