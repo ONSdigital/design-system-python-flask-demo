@@ -25,7 +25,13 @@ pip install -U pip setuptools
 pip install poetry
 ```
 
-All the libraries declared are available in `pyproject.toml`. To install these defined dependencies, run `poetry install`. To add a new dependency, run `poetry add <dependency_name>`.
+All the libraries declared are available in `pyproject.toml`. Install these defined dependencies as shown below,
+
+```
+poetry install
+```
+
+To add new dependancies in this project, run `poetry add <dependency_name>`.
 
 Install pre-commit hooks, to automatically execute code checks and formatting tools before each commit as shown below.
 
