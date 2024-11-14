@@ -1,9 +1,13 @@
 # design-system-python-flask-demo
 
 This project is a demo of design system implemented in Python and Flask.
+This project is a demo of design system implemented in Python and Flask.
 
 ## Setup
 
+## Setup
+
+For setting up this project, run the below command. pyenv is a Python version management tool that allows switching between multiple Python versions. jq is a JSON preprocessor that is used to fetch the design system's templates using `scripts/load_release.sh`.
 For setting up this project, run the below command. pyenv is a Python version management tool that allows switching between multiple Python versions. jq is a JSON preprocessor that is used to fetch the design system's templates using `scripts/load_release.sh`.
 
 ```
@@ -12,12 +16,15 @@ brew install pyenv jq
 
 Install Python and initialise the virtual environment as shown below.
 Note: The Python version is specified in the .python-version file.
+Install Python and initialise the virtual environment as shown below.
+Note: The Python version is specified in the .python-version file.
 
 ```
 pyenv install
 python3 -m venv env && source env/bin/activate
 ```
 
+Install Poetry, a dependency management and packaging tool, as shown below.
 Install Poetry, a dependency management and packaging tool, as shown below.
 
 ```

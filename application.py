@@ -1,7 +1,8 @@
-from flask import (Flask, render_template, render_template_string,
-                   send_from_directory)
+import os
+
+import frontmatter
+from flask import Flask, render_template, render_template_string, send_from_directory
 from jinja2 import ChainableUndefined
-import os, frontmatter
 
 app = Flask(__name__)
 
