@@ -1,10 +1,13 @@
-{% extends "layout/_template.njk" %} 
-{% block body %}  
-<div class="ons-u-p-m">
-    <h1>"{{component_name}}" examples</h1>
+{% extends "layout/_template.njk" %}
+{% block body %}
+  <div class="ons-u-p-m">
+    <h1>"{{ component_name }}" examples</h1>
     <ul class="ons-list ons-list--dashed ons-u-pb-l">
-    {% for file in example_files %}
-    <li class = "ons-list__item"><a href="{{ url_for('example', component_name=component_name, filename=file) }}">{{ file.replace('.njk', '') }}</a></li>
-    {% endfor %}
-</div> 
-{% endblock %}   
+      {% for file in example_files %}
+        <li class="ons-list__item">
+          <a href="{{ url_for('example', component_name=component_name, filename=file) }}">{{ file.replace('.njk', '') }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
