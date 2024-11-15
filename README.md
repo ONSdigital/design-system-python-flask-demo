@@ -28,6 +28,7 @@ pip install poetry
 All the libraries declared are available in `pyproject.toml`. Install these defined dependencies as shown below,
 
 ```
+poetry self add poetry-plugin-dotenv
 poetry install
 ```
 
