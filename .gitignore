@@ -7,3 +7,7 @@ templates/components
 templates/layout
 .DS_store
 node_modules
+venv
+.vscode
+*.code-workspace
+.env
