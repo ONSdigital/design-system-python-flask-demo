@@ -15,7 +15,6 @@ Note: The Python version is specified in the .python-version file.
 
 ```
 pyenv install
-python3 -m venv env && source env/bin/activate
 ```
 
 Install Poetry, a dependency management and packaging tool, as shown below.
