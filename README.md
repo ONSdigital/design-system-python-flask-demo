@@ -15,7 +15,6 @@ Note: The Python version is specified in the .python-version file.
 
 ```
 pyenv install
-python3 -m venv env && source env/bin/activate
 ```
 
 Install Poetry, a dependency management and packaging tool, as shown below.
@@ -25,7 +24,14 @@ pip install -U pip setuptools
 pip install poetry
 ```
 
-All the libraries declared are available in `pyproject.toml`. To install these defined dependencies, run `poetry install`. To add a new dependency, run `poetry add <dependency_name>`.
+All the libraries declared are available in `pyproject.toml`. Install these defined dependencies as shown below,
+
+```
+poetry self add poetry-plugin-dotenv
+poetry install
+```
+
+To add new dependancies in this project, run `poetry add <dependency_name>`.
 
 Install pre-commit hooks, to automatically execute code checks and formatting tools before each commit as shown below.
 
@@ -41,4 +47,4 @@ npm install
 
 ## Running the Application
 
-For running this application, run `make run` which first executes `scripts/load_release.sh` script that downloads the Design System macros zip file from the github release and unzips them into a templates folder. Then, `flask --app application run ` renders all the example components as displayed in the Design System at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.
+For running this application, run `make run` which first executes `scripts/load_release.sh` script that downloads the Design System macros zip file from the github release and unzips them into a templates folder. Then, `poetry run flask run` renders all the example components as displayed in the Design System at `http://127.0.0.1:5000`. The CSS and JS are pulled in at runtime from the CDN.

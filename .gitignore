@@ -1,8 +1,10 @@
-*/__pycache__
-*/*/__pycache__
-*/*/*/__pycache__
-*.pyc
+__pycache__
 env
 templates/components
 templates/layout
+.DS_store
 node_modules
+venv
+.vscode
+*.code-workspace
+.env
