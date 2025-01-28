@@ -1,10 +1,29 @@
 import os
 
 import frontmatter
-from flask import Flask, render_template, render_template_string, send_from_directory
+from flask import (
+    Flask,
+    render_template,
+    render_template_string,
+    request,
+    send_from_directory,
+)
+from flask_babel import Babel, gettext
 from jinja2 import ChainableUndefined
 
 app = Flask(__name__)
+
+
+app.config["BABEL_DEFAULT_LOCALE"] = "en"
+app.config["BABEL_TRANSLATION_DIRECTORIES"] = "translations"
+
+
+def get_locale():
+    return request.args.get("lang") or "en"
+
+
+babel = Babel(app)
+babel.init_app(app, locale_selector=get_locale)
 
 
 def setAttributes(dictionary, attributes):
@@ -32,6 +51,11 @@ def index():
         if file.startswith("example")
     }
     return render_template("index.html", example_files=sorted(directories))
+
+
+@app.route("/test")
+def test():
+    return render_template("test.html")
 
 
 @app.route("/components/<component_name>")
@@ -62,7 +86,7 @@ def example(component_name, filename):
                 + content.content
                 + "</div>{% endblock %}"
             )
-        return render_template_string(template)
+        return render_template_string(template, gettext=gettext)
     except FileNotFoundError:
         return "File not found"
 
