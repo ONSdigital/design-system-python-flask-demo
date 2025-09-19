@@ -31,7 +31,7 @@ poetry self add poetry-plugin-dotenv
 poetry install
 ```
 
-To add new dependancies in this project, run `poetry add <dependency_name>`.
+To add new dependencies in this project, run `poetry add <dependency_name>`.
 
 Install pre-commit hooks, to automatically execute code checks and formatting tools before each commit as shown below.
 
