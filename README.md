@@ -10,12 +10,15 @@ For setting up this project, run the below command. pyenv is a Python version ma
 brew install pyenv jq
 ```
 
-Install Python and initialise the virtual environment as shown below.
+Install Python and initialise the virtual environment.
 Note: The Python version is specified in the .python-version file.
 
 ```
 pyenv install
 ```
+
+- ignore warnings about `tkinter`
+- configure your shell <https://github.com/pyenv/pyenv?tab=readme-ov-file#b-set-up-your-shell-environment-for-pyenv>
 
 Install Poetry, a dependency management and packaging tool, as shown below.
 
@@ -24,7 +27,7 @@ pip install -U pip setuptools
 pip install poetry
 ```
 
-All the libraries declared are available in `pyproject.toml`. Install these defined dependencies as shown below,
+All the libraries declared are available in `pyproject.toml`. Install these defined dependencies.
 
 ```
 poetry self add poetry-plugin-dotenv
@@ -33,13 +36,13 @@ poetry install
 
 To add new dependencies in this project, run `poetry add <dependency_name>`.
 
-Install pre-commit hooks, to automatically execute code checks and formatting tools before each commit as shown below.
+Install pre-commit hooks, to automatically execute code checks and formatting tools before each commit.
 
 ```
 poetry run pre-commit install
 ```
 
-Install code formatter prettier and `prettier-plugin-jinja-template` plugin as shown below.
+Install code formatter prettier and `prettier-plugin-jinja-template` plugin.
 
 ```
 npm install
