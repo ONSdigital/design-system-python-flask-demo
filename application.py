@@ -68,5 +68,4 @@ def example(component_name, filename):
 
 
 if __name__ == "__main__":
-    debug_mode = os.environ.get("LOCAL_DEV") == "1"
-    app.run(debug=debug_mode)
+    app.run()
