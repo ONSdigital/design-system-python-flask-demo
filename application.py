@@ -42,9 +42,7 @@ def component(component_name):
     if not requested_directory.startswith(root_directory):
         return "Invalid component name", 400
     example_files = [
-        file
-        for file in os.listdir(requested_directory)
-        if file.startswith("example")
+        file for file in os.listdir(requested_directory) if file.startswith("example")
     ]
     return render_template(
         "component-examples-list.html",
@@ -56,11 +54,9 @@ def component(component_name):
 @app.route("/components/<component_name>/<filename>")
 def example(component_name, filename):
     try:
-        base_path = os.path.abspath(os.path.join("templates", "components"))
-        requested_path = os.path.abspath(os.path.normpath(os.path.join(base_path, component_name, filename)))
-        if not requested_path.startswith(base_path + os.sep):
-            # Attempt to escape base_path – forbidden
-            return "File not found"
+        requested_path = os.path.abspath(
+            os.path.join("templates", "components", component_name, filename)
+        )
         with open(requested_path, "r") as content:
             content = frontmatter.load(content)
         if "layout" in content.metadata:
