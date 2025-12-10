@@ -36,9 +36,14 @@ def index():
 
 @app.route("/components/<component_name>")
 def component(component_name):
+    root_directory = os.path.abspath("templates/components")
+    requested_directory = os.path.normpath(os.path.join(root_directory, component_name))
+    # Make sure requested_directory is inside root_directory
+    if not requested_directory.startswith(root_directory):
+        return "Invalid component name", 400
     example_files = [
         file
-        for file in os.listdir(f"templates/components/{component_name}/")
+        for file in os.listdir(requested_directory)
         if file.startswith("example")
     ]
     return render_template(
