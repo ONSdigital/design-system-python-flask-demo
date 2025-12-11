@@ -5,6 +5,7 @@ from flask import Flask, render_template, render_template_string, send_from_dire
 from jinja2 import ChainableUndefined
 
 app = Flask(__name__)
+root_directory = os.path.abspath("templates/components")
 
 
 def setAttributes(dictionary, attributes):
@@ -24,7 +25,6 @@ def generate_images(filename):
 
 @app.route("/")
 def index():
-    root_directory = "templates/components"
     directories = {
         directory
         for directory in os.listdir(root_directory)
@@ -36,27 +36,37 @@ def index():
 
 @app.route("/components/<component_name>")
 def component(component_name):
-    root_directory = os.path.abspath("templates/components")
-    requested_directory = os.path.normpath(os.path.join(root_directory, component_name))
-    # Make sure requested_directory is inside root_directory
-    if not requested_directory.startswith(root_directory):
-        return "Invalid component name", 400
-    example_files = [
-        file
-        for file in os.listdir(requested_directory)
-        if file.startswith("example")
-    ]
-    return render_template(
-        "component-examples-list.html",
-        example_files=sorted(example_files),
-        component_name=component_name,
-    )
+    try:
+        requested_directory = os.path.normpath(
+            os.path.join(root_directory, component_name)
+        )
+        # Make sure requested_directory is inside root_directory
+        if not requested_directory.startswith(root_directory):
+            raise ValueError("Invalid component name or path.")
+        example_files = [
+            file
+            for file in os.listdir(requested_directory)
+            if file.startswith("example")
+        ]
+        return render_template(
+            "component-examples-list.html",
+            example_files=sorted(example_files),
+            component_name=component_name,
+        )
+    except FileNotFoundError:
+        return "Component not found", 404
 
 
 @app.route("/components/<component_name>/<filename>")
 def example(component_name, filename):
     try:
-        with open(f"templates/components/{component_name}/{filename}", "r") as content:
+        requested_path = os.path.normpath(
+            os.path.join(root_directory, component_name, filename)
+        )
+        # Make sure requested_path is inside root_directory
+        if not requested_path.startswith(root_directory):
+            raise ValueError("Invalid component name or path.")
+        with open(requested_path, "r") as content:
             content = frontmatter.load(content)
         if "layout" in content.metadata:
             template = content.content
@@ -69,7 +79,7 @@ def example(component_name, filename):
             )
         return render_template_string(template)
     except FileNotFoundError:
-        return "File not found"
+        return "File not found", 404
 
 
 if __name__ == "__main__":
