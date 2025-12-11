@@ -5,6 +5,7 @@ from flask import Flask, render_template, render_template_string, send_from_dire
 from jinja2 import ChainableUndefined
 
 app = Flask(__name__)
+root_directory = os.path.abspath("templates/components")
 
 
 def setAttributes(dictionary, attributes):
@@ -24,7 +25,6 @@ def generate_images(filename):
 
 @app.route("/")
 def index():
-    root_directory = "templates/components"
     directories = {
         directory
         for directory in os.listdir(root_directory)
@@ -37,7 +37,6 @@ def index():
 @app.route("/components/<component_name>")
 def component(component_name):
     try:
-        root_directory = os.path.abspath("templates/components")
         requested_directory = os.path.normpath(
             os.path.join(root_directory, component_name)
         )
@@ -61,7 +60,6 @@ def component(component_name):
 @app.route("/components/<component_name>/<filename>")
 def example(component_name, filename):
     try:
-        root_directory = os.path.abspath("templates/components")
         requested_path = os.path.normpath(
             os.path.join(root_directory, component_name, filename)
         )
