@@ -36,27 +36,38 @@ def index():
 
 @app.route("/components/<component_name>")
 def component(component_name):
-    root_directory = os.path.abspath("templates/components")
-    requested_directory = os.path.normpath(os.path.join(root_directory, component_name))
-    # Make sure requested_directory is inside root_directory
-    if not requested_directory.startswith(root_directory):
-        return "Invalid component name", 400
-    example_files = [
-        file for file in os.listdir(requested_directory) if file.startswith("example")
-    ]
-    return render_template(
-        "component-examples-list.html",
-        example_files=sorted(example_files),
-        component_name=component_name,
-    )
+    try:
+        root_directory = os.path.abspath("templates/components")
+        requested_directory = os.path.normpath(
+            os.path.join(root_directory, component_name)
+        )
+        # Make sure requested_directory is inside root_directory
+        if not requested_directory.startswith(root_directory):
+            raise ValueError("Invalid component name or path.")
+        example_files = [
+            file
+            for file in os.listdir(requested_directory)
+            if file.startswith("example")
+        ]
+        return render_template(
+            "component-examples-list.html",
+            example_files=sorted(example_files),
+            component_name=component_name,
+        )
+    except FileNotFoundError:
+        return "Component not found", 404
 
 
 @app.route("/components/<component_name>/<filename>")
 def example(component_name, filename):
     try:
-        requested_path = os.path.abspath(
-            os.path.join("templates", "components", component_name, filename)
+        root_directory = os.path.abspath("templates/components")
+        requested_path = os.path.normpath(
+            os.path.join(root_directory, component_name, filename)
         )
+        # Make sure requested_path is inside root_directory
+        if not requested_path.startswith(root_directory):
+            raise ValueError("Invalid component name or path.")
         with open(requested_path, "r") as content:
             content = frontmatter.load(content)
         if "layout" in content.metadata:
@@ -70,7 +81,7 @@ def example(component_name, filename):
             )
         return render_template_string(template)
     except FileNotFoundError:
-        return "File not found"
+        return "File not found", 404
 
 
 if __name__ == "__main__":
