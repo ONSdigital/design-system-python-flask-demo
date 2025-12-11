@@ -37,7 +37,9 @@ def index():
 @app.route("/components/<component_name>")
 def component(component_name):
     try:
-        requested_directory = os.path.join(root_directory, component_name)
+        requested_directory = os.path.normpath(
+            os.path.join(root_directory, component_name)
+        )
         # Make sure requested_directory is inside root_directory
         if not requested_directory.startswith(root_directory):
             raise ValueError("Invalid component name or path.")
@@ -58,7 +60,9 @@ def component(component_name):
 @app.route("/components/<component_name>/<filename>")
 def example(component_name, filename):
     try:
-        requested_path = os.path.join(root_directory, component_name, filename)
+        requested_path = os.path.normpath(
+            os.path.join(root_directory, component_name, filename)
+        )
         # Make sure requested_path is inside root_directory
         if not requested_path.startswith(root_directory):
             raise ValueError("Invalid component name or path.")
