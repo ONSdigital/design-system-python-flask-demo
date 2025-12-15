@@ -30,8 +30,8 @@ def resolvePath(path):
 
     resolved = os.path.normpath(os.path.join(root_directory, path))
 
-    # Ensure the path is inside the allowed root (prevents ../ traversal)
-    if not resolved.startswith(root_directory + os.sep) and resolved != root_directory:
+    # Ensure the path is inside the allowed root (prevents ../ traversal), using commonpath for robustness
+    if os.path.commonpath([root_directory, resolved]) != root_directory:
         abort(404)
 
     # If the path doesn't exist, return 404
