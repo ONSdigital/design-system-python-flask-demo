@@ -8,7 +8,7 @@ link-development-env:
 	ln -sf $(DESIGN_SYSTEM_ENV_FILE) .env
 
 run: load-design-system-templates link-development-env
-	poetry run flask run
+	poetry run flask --app "$${FLASK_APP:-application}" run --host "$${FLASK_RUN_HOST:-127.0.0.1}" --port "$${FLASK_RUN_PORT:-5000}"
 
 format-python:
 	poetry run isort .
